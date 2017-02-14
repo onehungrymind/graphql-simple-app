@@ -1,4 +1,6 @@
-# ng2-computed-observables
+# GraphQL Simple App
+
+This is a simple [GraphQL](http://graphql.org/) application built with [Angular](https://angular.io/) and the [Apollo Client](http://dev.apollodata.com/angular2/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31.
 
