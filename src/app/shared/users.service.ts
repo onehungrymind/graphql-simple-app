@@ -32,7 +32,6 @@ export const initialUsers: User[] = [
 ];
 
 export const users: ActionReducer<User[]> = (state: User[] = initialUsers, action: Action) => {
-
   switch (action.type) {
     case ADD_USER:
       return [...state, action.payload];

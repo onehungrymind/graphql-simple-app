@@ -7,11 +7,14 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
-import { ItemsComponent } from './items/items.component';
 import { UserComponent } from './users/user/user.component';
+import { ItemsComponent } from './items/items.component';
 import { ItemComponent } from './items/item/item.component';
 import { UsersItemsComponent } from './users-items/users-items.component';
 import { UserItemsComponent } from './users-items/user-items/user-items.component';
+
+import { ApolloModule } from 'apollo-angular';
+import { getClient } from './client';
 
 import {
   UsersService,
@@ -25,8 +28,8 @@ import {
   declarations: [
     AppComponent,
     UsersComponent,
-    ItemsComponent,
     UserComponent,
+    ItemsComponent,
     ItemComponent,
     UsersItemsComponent,
     UserItemsComponent,
@@ -36,7 +39,8 @@ import {
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    StoreModule.provideStore({users, items})
+    StoreModule.provideStore({users, items}),
+    ApolloModule.forRoot(getClient)
   ],
   providers: [
     UsersService,
