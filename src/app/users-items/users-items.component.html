@@ -1,0 +1,10 @@
+<md-card>
+  <md-card-title>User Items</md-card-title>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let userItems of usersItems$ | async">
+        <app-user-items [userItems]="userItems"></app-user-items>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>

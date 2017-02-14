@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/core/theming/prebuilt/pink-bluegrey.css";
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url(/assets/background.jpeg);
+  background-size: cover;
+}
+
+md-card {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.md-list-item {
+  height: auto !important;
+  margin: 15px 0;
+}
+
+.md-ripple-foreground {
+  display: none;
+}
+
+.md-input-suffix {
+  text-align: right;
+}
+
+md-card-title {
+  color: #b0bec5;
+}
+
