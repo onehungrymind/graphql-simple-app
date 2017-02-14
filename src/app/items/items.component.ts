@@ -1,6 +1,28 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { ItemsService, UsersService, Item, User } from '../shared';
+import { ItemsService, Item, User } from '../shared';
+
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
+
+const itemsQuery = gql`
+  query items {
+    items {
+      id
+      name
+      userId
+    }
+  }
+`;
+
+const usersQuery = gql`
+  query users {
+    users {
+      id
+      name
+    }
+  }
+`;
 
 @Component({
   selector: 'app-items',
@@ -8,26 +30,28 @@ import { ItemsService, UsersService, Item, User } from '../shared';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent {
-  items$: Observable<Item[]> = this.itemsService.getItems();
-  users$: Observable<User[]> = this.usersService.getUsers();
-  shouldShowNewItem: boolean = false;
+  items$: Observable<Item[]> = this.apollo.watchQuery({
+    query: itemsQuery
+  }).map((result: any) => result.data.items);
+  users$: Observable<User[]> = this.apollo.watchQuery({
+    query: usersQuery
+  }).map((result: any) => result.data.users);
+  shouldShowNewItem = false;
   newItem: Item = this.itemsService.initializeNewItem();
 
-  constructor(
-    private itemsService: ItemsService,
-    private usersService: UsersService
-  ) { }
+  constructor(private itemsService: ItemsService,
+              private apollo: Apollo) { }
 
   toggleNewItem(): void {
     this.shouldShowNewItem = !this.shouldShowNewItem;
 
-    if (!this.shouldShowNewItem)
+    if (!this.shouldShowNewItem) {
       this.newItem = this.itemsService.initializeNewItem();
+    }
   }
 
   addItem(): void {
     this.itemsService.addItem(this.newItem);
     this.newItem = this.itemsService.initializeNewItem();
   }
-
 }
