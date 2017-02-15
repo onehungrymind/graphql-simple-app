@@ -13,7 +13,7 @@ export class ItemsService {
   constructor(private store: Store<AppStore>) { }
 
   initializeNewItem(): Item {
-    return {id: UUID.UUID(), name: '', userId: undefined};
+    return {id: UUID.UUID(), name: '', owner: undefined};
   }
 
   addItem(item): void {
@@ -21,13 +21,7 @@ export class ItemsService {
   }
 }
 
-export const initialItems: Item[] = [
-  {id: '1', name: 'Item 1', userId: '3'},
-  {id: '2', name: 'Item 2', userId: '2'},
-  {id: '3', name: 'Item 3', userId: '1'}
-];
-
-export const items: ActionReducer<Item[]> = (state: Item[] = initialItems, action: Action) => {
+export const items: ActionReducer<Item[]> = (state: Item[], action: Action) => {
 
   switch (action.type) {
     case ADD_ITEM:
