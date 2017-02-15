@@ -22,21 +22,20 @@ const usersQuery = gql`
 export class UsersComponent {
   users$: Observable<User[]> = this.apollo.watchQuery({
     query: usersQuery
-  }).map((result: any) => result.data.users);
-  shouldShowNewUser = false;
+  }).map((result :any) => result.data.users);
+  shouldShowNewUser: boolean = false;
   newUser: User = this.usersService.initializeNewUser();
 
   constructor(
-    private usersService: UsersService,
-    private apollo: Apollo) {}
+      private usersService: UsersService,
+      private apollo: Apollo) {}
 
 
   toggleNewUser(): void {
     this.shouldShowNewUser = !this.shouldShowNewUser;
 
-    if (!this.shouldShowNewUser) {
+    if (!this.shouldShowNewUser)
       this.newUser = this.usersService.initializeNewUser();
-    }
   }
 
   addUser(): void {

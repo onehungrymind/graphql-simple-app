@@ -7,8 +7,8 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
-import { UserComponent } from './users/user/user.component';
 import { ItemsComponent } from './items/items.component';
+import { UserComponent } from './users/user/user.component';
 import { ItemComponent } from './items/item/item.component';
 import { UsersItemsComponent } from './users-items/users-items.component';
 import { UserItemsComponent } from './users-items/user-items/user-items.component';
@@ -18,7 +18,6 @@ import { getClient } from './client';
 
 import {
   UsersService,
-  UsersItemsService,
   ItemsService,
   users,
   items
@@ -28,8 +27,8 @@ import {
   declarations: [
     AppComponent,
     UsersComponent,
-    UserComponent,
     ItemsComponent,
+    UserComponent,
     ItemComponent,
     UsersItemsComponent,
     UserItemsComponent,
@@ -44,7 +43,6 @@ import {
   ],
   providers: [
     UsersService,
-    UsersItemsService,
     ItemsService
   ],
   bootstrap: [AppComponent]

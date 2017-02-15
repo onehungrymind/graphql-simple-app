@@ -1,5 +1,7 @@
+import { User } from './user.model';
+
 export interface Item {
   id: string,
   name: string,
-  userId: string
+  owner: User
 }

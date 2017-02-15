@@ -12,10 +12,6 @@ export class ItemsService {
 
   constructor(private store: Store<AppStore>) { }
 
-  getItems(): Observable<Item[]> {
-    return this.store.select('items');
-  }
-
   initializeNewItem(): Item {
     return {id: UUID.UUID(), name: '', userId: undefined};
   }
