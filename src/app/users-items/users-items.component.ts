@@ -25,7 +25,7 @@ const usersItemsQuery = gql`
 export class UsersItemsComponent {
   usersItems$: Observable<UserItems[]> = this.apollo.watchQuery({
     query: usersItemsQuery
-  }).map((result :any) => result.data.users);
+  }).map((result: any) => result.data.users);
 
   constructor(private apollo: Apollo) { }
 

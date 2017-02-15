@@ -22,8 +22,8 @@ const usersQuery = gql`
 export class UsersComponent {
   users$: Observable<User[]> = this.apollo.watchQuery({
     query: usersQuery
-  }).map((result :any) => result.data.users);
-  shouldShowNewUser: boolean = false;
+  }).map((result: any) => result.data.users);
+  shouldShowNewUser = false;
   newUser: User = this.usersService.initializeNewUser();
 
   constructor(
@@ -34,8 +34,9 @@ export class UsersComponent {
   toggleNewUser(): void {
     this.shouldShowNewUser = !this.shouldShowNewUser;
 
-    if (!this.shouldShowNewUser)
+    if (!this.shouldShowNewUser) {
       this.newUser = this.usersService.initializeNewUser();
+    }
   }
 
   addUser(): void {

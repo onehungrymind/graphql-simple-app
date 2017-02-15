@@ -34,11 +34,11 @@ const itemsQuery = gql`
 export class ItemsComponent {
   items$: Observable<Item[]> = this.apollo.watchQuery({
     query: itemsQuery
-  }).map((result :any) => result.data.items);
+  }).map((result: any) => result.data.items);
   users$: Observable<User[]> = this.apollo.watchQuery({
     query: usersQuery
-  }).map((result :any) => result.data.users);
-  shouldShowNewItem: boolean = false;
+  }).map((result: any) => result.data.users);
+  shouldShowNewItem = false;
   newItem: Item = this.itemsService.initializeNewItem();
 
   constructor(
@@ -50,8 +50,9 @@ export class ItemsComponent {
   toggleNewItem(): void {
     this.shouldShowNewItem = !this.shouldShowNewItem;
 
-    if (!this.shouldShowNewItem)
+    if (!this.shouldShowNewItem) {
       this.newItem = this.itemsService.initializeNewItem();
+    }
   }
 
   addItem(): void {
