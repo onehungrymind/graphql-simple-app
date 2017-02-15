@@ -26,4 +26,4 @@ npm i
 npm start
 ```
 
-Once both the server and client are running, you can navigate to [http://localhost:4200](http://localhost:4200) to see the application. Your server will be running on http://localhost:3000.
+Once both the server and client are running, you can navigate to [http://localhost:4200](http://localhost:4200) to see the application. Your server will be running on [http://localhost:3000](http://localhost:3000). You can see a graphical representation of your data at [http://localhost:3000/graphiql](http://localhost:3000/graphiql).
