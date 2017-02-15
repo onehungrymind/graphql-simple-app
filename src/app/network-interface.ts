@@ -6,5 +6,5 @@ const networkInterface = createNetworkInterface(
   });
 
 export {
-    networkInterface
+  networkInterface
 }
